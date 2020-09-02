@@ -1,0 +1,17 @@
+---
+title: "Some Universities in Bogotá-Colombia"
+author: "Andrés Sierra-Ricaurte"
+date: "2/9/2020"
+output: html_document
+---
+
+```{r, echo=FALSE}
+library(leaflet)
+df <- data.frame(University=c("Universidad Nacional", "Universidad Distrital", "Universidad de los Andes", "Universidad Javeriana", "Universidad Pedagógica"), 
+                 lat=c(4.638194,4.613556, 4.602041, 4.627562, 4.658365),
+                 long=c(-74.084046,-74.065296,-74.065494,-74.064674, -74.059180))
+df%>% leaflet() %>% addTiles() %>%
+        addCircleMarkers(lng=df$long, lat = df$lat, 
+                         popup = df$University, color = "red")
+
+```
