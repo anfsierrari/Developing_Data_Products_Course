@@ -1,0 +1,41 @@
+---
+title: "Sepal an petal meassurements for three *Iris* species"
+author: "Andrés Sierra-Ricaurte"
+date: "8/9/2020"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Same n for the different species
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(plotly)
+data(iris)
+pq <- plot_ly(iris, x=iris$Species, type = "histogram", fillcolor=iris$Species)
+pq
+```
+
+
+##  *I. setosa* is slightly different in sepal measurements
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+f <- list(family = "Courier New, monospace",size = 18,color = "#7f7f7f")
+x <- list(title = "Length",titlefont = f)
+y <- list(title = "Width",titlefont = f)
+
+p <- plot_ly(iris, x=iris$Sepal.Length, y=iris$Sepal.Width, fillcolor=iris$Species, mode="markers") %>% layout(xaxis=x, yaxis=y)
+p
+```
+
+## *I. setosa* is clearly different in petal measurements
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+q <- plot_ly(iris, x=iris$Petal.Length, y=iris$Petal.Width, fillcolor=iris$Species, mode="markers")  %>% layout(xaxis=x, yaxis=y)
+q
+```
+
+## Conclusion
+- The Species *I. setosa* can be identified by sepal and petal measurements.
+
+- The Species *I. virginica* and *I. versicolor* can not be differentiated by floral measurements.
