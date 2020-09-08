@@ -1,5 +1,5 @@
 ---
-title: "Sepal an petal meassurements for three *Iris* species"
+title: "Sepal an petal measurements for three *Iris* species"
 author: "Andrés Sierra-Ricaurte"
 date: "8/9/2020"
 output: ioslides_presentation
